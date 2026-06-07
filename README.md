@@ -65,4 +65,5 @@ Z	Boss Final
 
 Uso de Inteligência Artificial
 
-A inteligência artificial generativa foi utilizada neste projeto como ferramenta de apoio no desenvolvimento do Read me.
+A inteligência artificial generativa foi utilizada neste projeto como ferramenta de apoio no desenvolvimento do Read me e no uso de
+codigos que são desconhacidos para o criador ou tem dificuldade em usar.
