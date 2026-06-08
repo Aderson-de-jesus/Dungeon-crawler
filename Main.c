@@ -23,6 +23,7 @@ void desenhaMapa(char mapa[MAX][MAX], int tam, int x, int y, char dir) {
 int main() {
 
     int fase = 0;
+    int vidaBoss = 3;
 
     int x = 1, y = 1;
     int newX, newY;
@@ -114,7 +115,42 @@ int main() {
         desenhaMapa(mapa, tam, x, y, dir);
 
         printf("\nMovimento (WASD): ");
+        printf("\n ataque (I): ");
         scanf(" %c", &input);
+        
+        if (input == 'i') {
+
+    int atkX = x;
+    int atkY = y;
+
+    if (dir == '^')
+        atkY--;
+    else if (dir == 'v')
+        atkY++;
+    else if (dir == '<')
+        atkX--;
+    else if (dir == '>')
+        atkX++;
+
+    if (mapa[atkY][atkX] == 'X' || mapa[atkY][atkX] == 'Y') {
+        mapa[atkY][atkX] = '.';
+        printf("Inimigo derrotado!\n");
+    }
+
+    else if (mapa[atkY][atkX] == 'Z') {
+
+        vidaBoss--;
+
+        printf("Boss atingido! Vida restante: %d\n", vidaBoss);
+
+        if (vidaBoss <= 0) {
+            mapa[atkY][atkX] = '.';
+            printf("Boss derrotado!\n");
+        }
+    }
+
+    
+}
 
         newX = x;
         newY = y;
@@ -196,7 +232,10 @@ else {
                 x = 1; y = 1;
             }
             else {
-                printf("\nVocê zerou a masmorra!\n");
+            	printf("\n****************************");
+                printf("\n*  Você zerou a masmorra!  *\n");
+                printf("*vamos em busca da proxima!*\n");
+                printf("****************************\n");
                 break;
             }
         }
