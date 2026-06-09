@@ -93,7 +93,7 @@ int main() {
         {'*','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','*'},
         {'*','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','*'},
         {'*','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','*'},
-        {'*','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','*'},
+        {'*','.','.','.','.','.','K','K','.','.','.','.','.','.','.','.','K','K','.','.','.','.','.','.','*'},
         {'*','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','*'},
         {'*','.','.','.','.','.','.','.','.','.','.','.','D','.','.','.','.','.','.','.','.','.','.','.','*'},
         {'*','.','.','.','.','.','.','.','.','.','.','*','.','*','.','.','.','.','.','.','.','.','.','.','*'},
@@ -105,7 +105,7 @@ int main() {
     char (*mapa)[MAX] = mapa0;
 	printf(" *Bem vindo a need of a dungeon, voce como um fanatico por dungeons*\n *             ja achou uma vila que possui uma dungeon            *\n *                 entao voce decidiu explorar ela                 *");
     printf("\n *           espero que voce se divirta em sua aventura            *");
-	printf("\n< Jogador virado para a esquerda;\n^ Jogador virado para cima\n> Jogador virado para a direita\nv Jogador virado para baixo\n* Parede\nD Porta fechada\n@ Chave (abre portas fechadas ao interagir)\n= Porta aberta\nL Escada (leva para próxima fase)\nX Monstro Tipo 1\nY Monstro Tipo 2\nZ Boss Final");
+	printf("\n< Jogador virado para a esquerda;\n^ Jogador virado para cima\n> Jogador virado para a direita\nv Jogador virado para baixo\n* Parede\nD Porta fechada\n@ Chave (abre portas fechadas ao interagir)\n= Porta aberta\nK caixa(pode ser destruida)\nL Escada (leva para proxima fase)\nX Monstro Tipo 1\nY Monstro Tipo 2\nZ Boss Final");
 	while(1) {
 		
 		
@@ -140,6 +140,9 @@ int main() {
         mapa[atkY][atkX] = '.';
         printf("Inimigo derrotado!\n");
     }
+	if (mapa[atkY][atkX] == 'K'){
+		mapa[atkY][atkX] = '.';
+	}
 
     else if (mapa[atkY][atkX] == 'Z') {
 
@@ -182,9 +185,11 @@ int main() {
 	}
 	else if (mapa[newY][newX] == 'X'|| mapa[newY][newX] == 'Y') {
     	vidaply--;
-}else if (mapa[newY][newX] == 'Z'){
+	}else if (mapa[newY][newX] == 'Z'){
     	vidaply--;
-}else if (mapa[newY][newX] == 'D') {
+	}else  if (mapa[newY][newX] == 'K'){
+    	
+	}else if (mapa[newY][newX] == 'D') {
 
     	if (temChave) {
      	   mapa[newY][newX] = '=';
