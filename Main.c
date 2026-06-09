@@ -4,7 +4,10 @@
 
 #define MAX 25
 
-void desenhaMapa(char mapa[MAX][MAX], int tam, int x, int y, char dir) {
+
+
+int main() {
+	int desenhaMapa(char mapa[MAX][MAX], int tam, int x, int y, char dir) {
     int i, j;
 
     mapa[y][x] = dir;
@@ -20,7 +23,6 @@ void desenhaMapa(char mapa[MAX][MAX], int tam, int x, int y, char dir) {
 }
 
 
-int main() {
 
     int fase = 0;
     int vidaBoss = 3;
@@ -173,7 +175,7 @@ int main() {
         }
 
         if (mapa[newY][newX] == '*') {
-    // parede, não faz nada
+    
 }
 else if (mapa[newY][newX] == 'D') {
 
@@ -193,7 +195,7 @@ else {
         
         if (mapa[y][x] == '@') {
 
-    temChave == 1;
+    temChave = 1;
     mapa[y][x] = '.';
 
     int i, j;
@@ -219,16 +221,16 @@ else {
             }
 			else if (fase == 1) {
                 mapa = mapa1;
-                temChave == 0;
+                temChave = 0;
                 x = 1; y = 1;
             }
             else if (fase == 2) {
                 mapa = mapa2;
-                temChave == 0;
+                temChave = 0;
                 x = 1; y = 1;
             }else if (fase == 3) {
                 mapa = mapa3;
-                temChave == 0;
+                temChave = 0;
                 x = 1; y = 1;
             }
             else {
