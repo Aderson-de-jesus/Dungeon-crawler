@@ -176,13 +176,13 @@ int main() {
             dir = '>';
         }
 
-		if (mapa[newY][newX] == 'X'|| mapa[newY][newX] == 'Y') {
-    
-}
+		
         if (mapa[newY][newX] == '*') {
     
 	}
-	else if (mapa[newY][newX] == 'D') {
+	else if (mapa[newY][newX] == 'X'|| mapa[newY][newX] == 'Y') {
+    	vidaply--;
+}else if (mapa[newY][newX] == 'D') {
 
     	if (temChave) {
      	   mapa[newY][newX] = '=';
@@ -201,9 +201,23 @@ else {
 			 vidaply--;
 			 
 		 }
+		  if (mapa[y][x] == 'Z'){
+			 vidaply--;
+			 
+		 }
 		 if(vidaply < 1){
 			 printf("*   GAME OVER   *\n*TENTE NOVAMENTE*");
-			 break;
+			 if(vidaply == 0){
+				  printf("\n\nFase %d\n", fase);
+        	printf("vida restante: %d\n\n", vidaply);
+        	if (fase == 0) tam = 10;
+        	if (fase == 1) tam = 10;
+        	if (fase == 2) tam = 15;
+        	if (fase == 3) tam = 25;
+        	y = 1;
+        	x = 1;
+        	vidaply = 3;
+			 }
 		 }
         if (mapa[y][x] == '@') {
 
