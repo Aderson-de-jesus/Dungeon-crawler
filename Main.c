@@ -103,8 +103,8 @@ int main() {
     };
 
     char (*mapa)[MAX] = mapa0;
-	printf(" *Bem vindo a sua ventura, voce como um fanatico por dungeons*\n *          ja achou uma vila que possui uma dungeon         *\n *              entao voce decidiu explorar ela              *");
-    printf("\n *            que voce se divirta em sua aventura            *");
+	printf(" *Bem vindo a need of a dungeon, voce como um fanatico por dungeons*\n *             ja achou uma vila que possui uma dungeon            *\n *                 entao voce decidiu explorar ela                 *");
+    printf("\n *           espero que voce se divirta em sua aventura            *");
 	printf("\n< Jogador virado para a esquerda;\n^ Jogador virado para cima\n> Jogador virado para a direita\nv Jogador virado para baixo\n* Parede\nD Porta fechada\n@ Chave (abre portas fechadas ao interagir)\n= Porta aberta\nL Escada (leva para próxima fase)\nX Monstro Tipo 1\nY Monstro Tipo 2\nZ Boss Final");
 	while(1) {
 		
