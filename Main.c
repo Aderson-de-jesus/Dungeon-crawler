@@ -1,13 +1,10 @@
 #include <stdio.h>
-#include <stdlib.h>
+
 
 
 #define MAX 25
 
-
-
-int main() {
-	int desenhaMapa(char mapa[MAX][MAX], int tam, int x, int y, char dir) {
+	void desenhaMapa(char mapa[MAX][MAX], int tam, int x, int y, char dir) {
     int i, j;
 
     mapa[y][x] = dir;
@@ -22,10 +19,12 @@ int main() {
     mapa[y][x] = '.';
 }
 
+int main() {
 
 
     int fase = 0;
     int vidaBoss = 3;
+    int vidaply = 3;
 
     int x = 1, y = 1;
     int newX, newY;
@@ -104,11 +103,14 @@ int main() {
     };
 
     char (*mapa)[MAX] = mapa0;
-
-    while (1) {
+	printf(" *Bem vindo a sua ventura, voce como um fanatico por dungeons*\n *          ja achou uma vila que possui uma dungeon         *\n *              entao voce decidiu explorar ela              *");
+    printf("\n *            que voce se divirta em sua aventura            *");
+	printf("\n< Jogador virado para a esquerda;\n^ Jogador virado para cima\n> Jogador virado para a direita\nv Jogador virado para baixo\n* Parede\nD Porta fechada\n@ Chave (abre portas fechadas ao interagir)\n= Porta aberta\nL Escada (leva para próxima fase)\nX Monstro Tipo 1\nY Monstro Tipo 2\nZ Boss Final");
+	while (1) {
 		
 		
-        printf("\nFase %d\n\n", fase);
+        printf("\n\nFase %d\n", fase);
+        printf("vida restante: %d\n\n", vidaply);
         if (fase == 0) tam = 10;
         if (fase == 1) tam = 10;
         if (fase == 2) tam = 15;
@@ -174,25 +176,35 @@ int main() {
             dir = '>';
         }
 
-        if (mapa[newY][newX] == '*') {
+		if (mapa[newY][newX] == 'X'|| mapa[newY][newX] == 'Y') {
     
 }
-else if (mapa[newY][newX] == 'D') {
+        if (mapa[newY][newX] == '*') {
+    
+	}
+	else if (mapa[newY][newX] == 'D') {
 
-    if (temChave) {
-        mapa[newY][newX] = '=';
-        x = newX;
-        y = newY;
-    } else {
-        printf("Porta trancada!\n");
-    }
+    	if (temChave) {
+     	   mapa[newY][newX] = '=';
+     	   x = newX;
+     	   y = newY;
+    	} else {
+    	    printf("Porta trancada!\n");
+    	}
 
 }
 else {
     x = newX;
     y = newY;
 }
-        
+         if (mapa[y][x] == 'X'|| mapa[y][x] == 'Y'){
+			 vidaply--;
+			 
+		 }
+		 if(vidaply < 1){
+			 printf("*   GAME OVER   *\n*TENTE NOVAMENTE*");
+			 break;
+		 }
         if (mapa[y][x] == '@') {
 
     temChave = 1;
